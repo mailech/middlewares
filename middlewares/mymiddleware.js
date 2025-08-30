@@ -20,6 +20,20 @@ let data = (req,res,next)=>{
 }
 
 let d = function(req,res,next){
+
+    console.log(req.query);
+    let fulldetail = ' '
+    for (k in req.query){
+        // res.locals[k] = req.query[k].toUpperCase();
+        // console.log(res.locals[k]);
+        // console.log(req.query[k]);
+        fulldetail +=req.query[k] + ' ';
+         res.locals[k] = fulldetail.toUpperCase();
+         
+        }
+        req.locals = {fulldetail}
+    console.log(res.locals[k]);
+    console.log(fulldetail);
     next();
 }
 
